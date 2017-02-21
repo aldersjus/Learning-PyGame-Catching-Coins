@@ -5,8 +5,9 @@ import pickle
 
 pygame.init()
 
-#Sounds play when arrow keys pushed.
-soundA = pygame.mixer.Sound("match1.wav")
+#Sounds play when arrow keys pushed. This file is from the Raspberry Pi Python Games examples to add this you
+#will need a Raspberry Pi.
+#soundA = pygame.mixer.Sound("match1.wav")
 
 
 black = [0, 0, 0]
@@ -26,8 +27,8 @@ highscore = 0
 score = 0
 highscore_name = ' '
 
-player = pygame.image.load('/home/pi/pygame_images/blue_blob.png')
-coin = pygame.image.load('/home/pi/pygame_images/coin.png')
+player = pygame.image.load('blue_blob.png')
+coin = pygame.image.load('coin.png')
 
 player_position_x = 250
 player_position_y = 300
@@ -36,7 +37,7 @@ x = [300]
 y = [300]
 
 try:
-    
+    #Adjust below as necessary, this was the location I used.. Create your own file in your preferred loacation..
     load_file = open('/home/pi/Catching_coins/catch_the_coin_game_data_two.dat', 'rb')
     loaded_game_data = pickle.load(load_file)
     data = loaded_game_data
@@ -196,16 +197,17 @@ while not done:
             
             if event.key == pygame.K_LEFT:
                 player_class.player_position_x -= 10
-                soundA.play()
+                #Uncomment if you have the sound file..
+                #soundA.play()
             elif event.key == pygame.K_RIGHT:
                 player_class.player_position_x += 10
-                soundA.play()
+                #soundA.play()
             elif event.key == pygame.K_UP:
                 player_class.player_position_y -= 10
-                soundA.play()
+                #soundA.play()
             elif event.key == pygame.K_DOWN:
                 player_class.player_position_y += 10
-                soundA.play()
+                #soundA.play()
 
             if event.key == pygame.K_SPACE:
                 game_running = True
